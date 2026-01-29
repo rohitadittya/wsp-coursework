@@ -1,9 +1,9 @@
 # Rohit Adittya Thumati
 
-![Rohit Adittya Thumati](./profile-picture.jpg) 
-*Note: Ensure your photo is named "profile-picture.jpg" and saved in the same folder as this README.*
+![Rohit Adittya Thumati](https://github.com/user-attachments/assets/17fc4c25-44b7-4a57-9c5c-9ba615e94d07)
 
 ### About Me
+
 
 I am a Full Stack Developer from India, with five years of experience working at companies like Cognizant, CHUBB, and Athenahealth. My journey in tech has been driven by a passion for continuous learning, leading me to transition from traditional full stack development toward the world of artificial intelligence. One of my most exciting projects involved implementing Retrieval Augmented Generation (RAG) to optimize specific use cases. The spark that ignited me towards AI is after seeing how AI integration at Athenahealth dramatically streamlined complex workflows.
 
