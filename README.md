@@ -1,6 +1,6 @@
 # Rohit Adittya Thumati
 
-![Rohit Adittya Thumati](https://github.com/user-attachments/assets/17fc4c25-44b7-4a57-9c5c-9ba615e94d07)
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/17fc4c25-44b7-4a57-9c5c-9ba615e94d07" />
 
 ### About Me
 
