@@ -1,0 +1,32 @@
+{
+  "name": "wsp-coursework",
+  "version": "1.0.0",
+  "description": "<img width=\"200\" alt=\"image\" src=\"https://github.com/user-attachments/assets/17fc4c25-44b7-4a57-9c5c-9ba615e94d07\" />",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && npm run build:client",
+    "build:client": "cd client && npm install && npm run build",
+    "start": "node dist/index.js",
+    "dev": "tsx watch server/index.ts",
+    "seed": "tsx server/models/seed_data.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.104.1",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "ws": "^8.20.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/gapi": "^0.0.47",
+    "@types/gapi.client.oauth2-v2": "^0.0.4",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

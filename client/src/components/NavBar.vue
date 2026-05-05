@@ -1,0 +1,123 @@
+<script setup lang="ts">
+import { useCartStore } from '@/stores/cart';
+import useSessionStore from '@/stores/session';
+import { ref } from 'vue';
+import { RouterLink } from 'vue-router';
+
+const isActive = ref(false);
+const cartStore = useCartStore();
+const sessionStore = useSessionStore();
+
+function login() {
+    sessionStore.login();
+}
+
+function toggleCart() {
+    console.log('Toggling cart sidebar');
+
+    cartStore.isCartSidebarOpen = !cartStore.isCartSidebarOpen;
+}
+</script>
+
+<template>
+    <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="https://bulma.io">
+                    <img alt="Vue logo" width="30" height="30" src="@/assets/logo.svg" />
+
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                    @click="isActive = !isActive" :class="{ 'is-active': isActive }" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': isActive }">
+                <div class="navbar-start">
+                    <RouterLink to="/" active-class="is-active" class="navbar-item">
+                        Home
+                    </RouterLink>
+
+                    <RouterLink to="/products" active-class="is-active" class="navbar-item">
+                        Products
+                    </RouterLink>
+
+                    <RouterLink to="/calendar" active-class="is-active" class="navbar-item">
+                        Calendar
+                    </RouterLink>
+
+                    <RouterLink to="/about" active-class="is-active" class="navbar-item">
+                        About
+                    </RouterLink>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">Admin</a>
+
+                        <div class="navbar-dropdown">
+                            <RouterLink to="/admin/products" active-class="is-active" class="navbar-item">
+                                Products
+                            </RouterLink>
+                            <RouterLink to="/admin/users" active-class="is-active" class="navbar-item">
+                                Users
+                            </RouterLink>
+                            <hr class="navbar-divider">
+                            <RouterLink to="/report-issue" active-class="is-active" class="navbar-item">
+                                Placeholder
+                            </RouterLink>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <a @click="toggleCart">
+                            <span class="tag is-danger is-small is-rounded count" v-if="cartStore.count">
+                                {{ cartStore.count }}
+                            </span>
+                            <span class="icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </span>
+                        </a>
+
+                    </div>
+
+                    <div v-if="sessionStore.user" class="navbar-item">
+                        <img :src="sessionStore.user.image" alt="Profile Picture" class="is-rounded" width="30"
+                            height="30">
+                        <div style="line-height: 1em;">
+                            {{ sessionStore.user.firstName }} {{ sessionStore.user.lastName }} <br />
+                            <small>{{ sessionStore.user.email }}</small>
+                        </div>
+                        <div>
+                            (<a @click="sessionStore.logout">Not You???</a>)
+                        </div>
+                    </div>
+                    <div class="navbar-item" v-else>
+
+                        <div class="buttons">
+                            <RouterLink to="/sign-up" active-class="is-active" class="button is-primary">
+                                <strong>Sign up</strong>
+                            </RouterLink>
+                            <button @click="login" class="button is-light"> Sign in</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</template>
+
+<style scoped>
+.count {
+    position: absolute;
+    top: -3px;
+    right: -7px;
+    font-size: 0.75rem;
+    transition: all 0.3s ease-in-out;
+}
+</style>
